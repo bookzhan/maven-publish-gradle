@@ -36,7 +36,7 @@ publishing {
             artifact androidSourcesJar
             pom {
                 name = publish_artifact_id
-                description = description
+                description = publish_description
                 url = github_project_url
                 licenses {
                     license {
@@ -74,7 +74,7 @@ publishing {
             name = "mavencentral"
             def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
             def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            url = publish_version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
             credentials {
                 username ossrhUsername
                 password ossrhPassword
